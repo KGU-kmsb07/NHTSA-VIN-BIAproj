@@ -1,0 +1,1432 @@
+[
+  {
+    "make": "BUICK",
+    "model": "ENCORE",
+    "year": 2020
+  },
+  {
+    "make": "BUICK",
+    "model": "ENCORE",
+    "year": 2021
+  },
+  {
+    "make": "BUICK",
+    "model": "ENCORE",
+    "year": 2022
+  },
+  {
+    "make": "BUICK",
+    "model": "ENCORE GX",
+    "year": 2020
+  },
+  {
+    "make": "BUICK",
+    "model": "ENCORE GX",
+    "year": 2021
+  },
+  {
+    "make": "BUICK",
+    "model": "ENCORE GX",
+    "year": 2022
+  },
+  {
+    "make": "BUICK",
+    "model": "ENCORE GX",
+    "year": 2023
+  },
+  {
+    "make": "BUICK",
+    "model": "ENCORE GX",
+    "year": 2024
+  },
+  {
+    "make": "BUICK",
+    "model": "ENCORE GX",
+    "year": 2025
+  },
+  {
+    "make": "BUICK",
+    "model": "ENCORE GX",
+    "year": 2026
+  },
+  {
+    "make": "BUICK",
+    "model": "ENVISTA",
+    "year": 2024
+  },
+  {
+    "make": "BUICK",
+    "model": "ENVISTA",
+    "year": 2025
+  },
+  {
+    "make": "BUICK",
+    "model": "ENVISTA",
+    "year": 2026
+  },
+  {
+    "make": "CHEVROLET",
+    "model": "SPARK",
+    "year": 2020
+  },
+  {
+    "make": "CHEVROLET",
+    "model": "SPARK",
+    "year": 2021
+  },
+  {
+    "make": "CHEVROLET",
+    "model": "SPARK",
+    "year": 2022
+  },
+  {
+    "make": "CHEVROLET",
+    "model": "TRAILBLAZER",
+    "year": 2021
+  },
+  {
+    "make": "CHEVROLET",
+    "model": "TRAILBLAZER",
+    "year": 2022
+  },
+  {
+    "make": "CHEVROLET",
+    "model": "TRAILBLAZER",
+    "year": 2023
+  },
+  {
+    "make": "CHEVROLET",
+    "model": "TRAILBLAZER",
+    "year": 2024
+  },
+  {
+    "make": "CHEVROLET",
+    "model": "TRAILBLAZER",
+    "year": 2025
+  },
+  {
+    "make": "CHEVROLET",
+    "model": "TRAILBLAZER",
+    "year": 2026
+  },
+  {
+    "make": "CHEVROLET",
+    "model": "TRAX",
+    "year": 2020
+  },
+  {
+    "make": "CHEVROLET",
+    "model": "TRAX",
+    "year": 2021
+  },
+  {
+    "make": "CHEVROLET",
+    "model": "TRAX",
+    "year": 2022
+  },
+  {
+    "make": "CHEVROLET",
+    "model": "TRAX",
+    "year": 2024
+  },
+  {
+    "make": "CHEVROLET",
+    "model": "TRAX",
+    "year": 2025
+  },
+  {
+    "make": "CHEVROLET",
+    "model": "TRAX",
+    "year": 2026
+  },
+  {
+    "make": "CHEVROLET",
+    "model": "VENTURE",
+    "year": 9999
+  },
+  {
+    "make": "DAEWOO",
+    "model": "DAEWOO",
+    "year": 9999
+  },
+  {
+    "make": "FORD",
+    "model": "F-150 HYBRID",
+    "year": 2021
+  },
+  {
+    "make": "GENESIS",
+    "model": "G70",
+    "year": 2020
+  },
+  {
+    "make": "GENESIS",
+    "model": "G70",
+    "year": 2021
+  },
+  {
+    "make": "GENESIS",
+    "model": "G70",
+    "year": 2022
+  },
+  {
+    "make": "GENESIS",
+    "model": "G70",
+    "year": 2023
+  },
+  {
+    "make": "GENESIS",
+    "model": "G70",
+    "year": 2024
+  },
+  {
+    "make": "GENESIS",
+    "model": "G70",
+    "year": 2025
+  },
+  {
+    "make": "GENESIS",
+    "model": "G70",
+    "year": 2026
+  },
+  {
+    "make": "GENESIS",
+    "model": "G80",
+    "year": 2020
+  },
+  {
+    "make": "GENESIS",
+    "model": "G80",
+    "year": 2021
+  },
+  {
+    "make": "GENESIS",
+    "model": "G80",
+    "year": 2022
+  },
+  {
+    "make": "GENESIS",
+    "model": "G80",
+    "year": 2023
+  },
+  {
+    "make": "GENESIS",
+    "model": "G80",
+    "year": 2025
+  },
+  {
+    "make": "GENESIS",
+    "model": "G80",
+    "year": 2026
+  },
+  {
+    "make": "GENESIS",
+    "model": "G80 ELECTRIFIED",
+    "year": 2023
+  },
+  {
+    "make": "GENESIS",
+    "model": "G80 ELECTRIFIED",
+    "year": 2024
+  },
+  {
+    "make": "GENESIS",
+    "model": "G90",
+    "year": 2020
+  },
+  {
+    "make": "GENESIS",
+    "model": "G90",
+    "year": 2021
+  },
+  {
+    "make": "GENESIS",
+    "model": "G90",
+    "year": 2022
+  },
+  {
+    "make": "GENESIS",
+    "model": "G90",
+    "year": 2023
+  },
+  {
+    "make": "GENESIS",
+    "model": "G90",
+    "year": 2024
+  },
+  {
+    "make": "GENESIS",
+    "model": "G90",
+    "year": 2025
+  },
+  {
+    "make": "GENESIS",
+    "model": "GV60",
+    "year": 2023
+  },
+  {
+    "make": "GENESIS",
+    "model": "GV60",
+    "year": 2024
+  },
+  {
+    "make": "GENESIS",
+    "model": "GV60",
+    "year": 2025
+  },
+  {
+    "make": "GENESIS",
+    "model": "GV70",
+    "year": 2022
+  },
+  {
+    "make": "GENESIS",
+    "model": "GV70",
+    "year": 2023
+  },
+  {
+    "make": "GENESIS",
+    "model": "GV70",
+    "year": 2025
+  },
+  {
+    "make": "GENESIS",
+    "model": "GV70",
+    "year": 2026
+  },
+  {
+    "make": "GENESIS",
+    "model": "GV70 ELECTRIFIED",
+    "year": 2023
+  },
+  {
+    "make": "GENESIS",
+    "model": "GV80",
+    "year": 2021
+  },
+  {
+    "make": "GENESIS",
+    "model": "GV80",
+    "year": 2022
+  },
+  {
+    "make": "GENESIS",
+    "model": "GV80",
+    "year": 2023
+  },
+  {
+    "make": "GENESIS",
+    "model": "GV80",
+    "year": 2024
+  },
+  {
+    "make": "GENESIS",
+    "model": "GV80",
+    "year": 2025
+  },
+  {
+    "make": "GENESIS",
+    "model": "GV80",
+    "year": 2026
+  },
+  {
+    "make": "GENESIS",
+    "model": "GV80 COUPE",
+    "year": 2025
+  },
+  {
+    "make": "GENESIS",
+    "model": "GV80 COUPE",
+    "year": 2026
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "ACCENT",
+    "year": 9999
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "ELANTRA",
+    "year": 2020
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "ELANTRA",
+    "year": 2021
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "ELANTRA",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "ELANTRA",
+    "year": 2023
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "ELANTRA",
+    "year": 2024
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "ELANTRA",
+    "year": 2025
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "ELANTRA",
+    "year": 2026
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "ELANTRA",
+    "year": 9999
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "ELANTRA GT",
+    "year": 2020
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "ELANTRA HYBRID",
+    "year": 2021
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "ELANTRA HYBRID",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "ELANTRA HYBRID",
+    "year": 2023
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "ELANTRA HYBRID",
+    "year": 2024
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "ELANTRA HYBRID",
+    "year": 2025
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "ELANTRA N",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "ELANTRA N",
+    "year": 2023
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "ELANTRA N",
+    "year": 2024
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "ELANTRA N",
+    "year": 2025
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "ELANTRA N",
+    "year": 2026
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "EXCEL",
+    "year": 9999
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "IONIQ",
+    "year": 2020
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "IONIQ 5",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "IONIQ 5",
+    "year": 2023
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "IONIQ 5",
+    "year": 2024
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "IONIQ 5",
+    "year": 2025
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "IONIQ 5 N",
+    "year": 2025
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "IONIQ 6",
+    "year": 2023
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "IONIQ 6",
+    "year": 2024
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "IONIQ 6",
+    "year": 2025
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "IONIQ ELECTRIC",
+    "year": 2020
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "IONIQ ELECTRIC",
+    "year": 2021
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "IONIQ HYBRID",
+    "year": 2020
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "IONIQ HYBRID",
+    "year": 2021
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "IONIQ HYBRID",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "IONIQ PLUG-IN HYBRID",
+    "year": 2020
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "IONIQ PLUG-IN HYBRID",
+    "year": 2021
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "IONIQ PLUG-IN HYBRID",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "KONA",
+    "year": 2020
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "KONA",
+    "year": 2021
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "KONA",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "KONA",
+    "year": 2023
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "KONA",
+    "year": 2024
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "KONA",
+    "year": 2025
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "KONA",
+    "year": 2026
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "KONA ELECTRIC",
+    "year": 2020
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "KONA ELECTRIC",
+    "year": 2021
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "KONA ELECTRIC",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "KONA ELECTRIC",
+    "year": 2023
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "KONA ELECTRIC",
+    "year": 2024
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "KONA ELECTRIC",
+    "year": 2025
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "KONA N",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "KONA N",
+    "year": 2023
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "NEXO",
+    "year": 2020
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "NEXO",
+    "year": 2021
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "NEXO",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "NEXO",
+    "year": 2023
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "PALISADE",
+    "year": 2020
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "PALISADE",
+    "year": 2021
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "PALISADE",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "PALISADE",
+    "year": 2023
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "PALISADE",
+    "year": 2024
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "PALISADE",
+    "year": 2025
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "PALISADE",
+    "year": 2026
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "PALISADE HYBRID",
+    "year": 2026
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "PALISADE HYBRID",
+    "year": 2027
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SANTA FE",
+    "year": 2021
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SANTA FE",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SANTA FE",
+    "year": 2023
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SANTA FE",
+    "year": 9999
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SANTA FE HYBRID",
+    "year": 2021
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SANTA FE HYBRID",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SANTA FE PLUG-IN HYBRID",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SANTA FE PLUG-IN HYBRID",
+    "year": 2023
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SONATA",
+    "year": 2020
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SONATA",
+    "year": 2021
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SONATA",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SONATA",
+    "year": 2023
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SONATA",
+    "year": 2024
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SONATA",
+    "year": 2025
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SONATA",
+    "year": 2026
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SONATA",
+    "year": 9999
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SONATA HYBRID",
+    "year": 2020
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SONATA HYBRID",
+    "year": 2021
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SONATA HYBRID",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SONATA HYBRID",
+    "year": 2023
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SONATA HYBRID",
+    "year": 2024
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SONATA HYBRID",
+    "year": 2025
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "SONATA HYBRID",
+    "year": 2026
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "TUCSON",
+    "year": 2020
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "TUCSON",
+    "year": 2021
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "TUCSON",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "TUCSON",
+    "year": 2023
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "TUCSON",
+    "year": 2024
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "TUCSON",
+    "year": 2025
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "TUCSON",
+    "year": 2026
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "TUCSON HYBRID",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "TUCSON HYBRID",
+    "year": 2023
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "TUCSON HYBRID",
+    "year": 2024
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "TUCSON HYBRID",
+    "year": 2025
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "TUCSON HYBRID",
+    "year": 2026
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "TUCSON PLUG-IN HYBRID",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "TUCSON PLUG-IN HYBRID",
+    "year": 2023
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "TUCSON PLUG-IN HYBRID",
+    "year": 2024
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "TUCSON PLUG-IN HYBRID",
+    "year": 2025
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "TUCSON PLUG-IN HYBRID",
+    "year": 2026
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "VELOSTER",
+    "year": 2020
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "VELOSTER",
+    "year": 2021
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "VELOSTER N",
+    "year": 2020
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "VELOSTER N",
+    "year": 2021
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "VELOSTER N",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "VENUE",
+    "year": 2020
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "VENUE",
+    "year": 2021
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "VENUE",
+    "year": 2022
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "VENUE",
+    "year": 2023
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "VENUE",
+    "year": 2024
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "VENUE",
+    "year": 2025
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "VENUE",
+    "year": 2026
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "XG300L",
+    "year": 9999
+  },
+  {
+    "make": "HYUNDAI",
+    "model": "XG350",
+    "year": 9999
+  },
+  {
+    "make": "KIA",
+    "model": "CARNIVAL",
+    "year": 2022
+  },
+  {
+    "make": "KIA",
+    "model": "CARNIVAL",
+    "year": 2023
+  },
+  {
+    "make": "KIA",
+    "model": "CARNIVAL",
+    "year": 2024
+  },
+  {
+    "make": "KIA",
+    "model": "CARNIVAL",
+    "year": 2025
+  },
+  {
+    "make": "KIA",
+    "model": "CARNIVAL",
+    "year": 2026
+  },
+  {
+    "make": "KIA",
+    "model": "CARNIVAL HYBRID",
+    "year": 2025
+  },
+  {
+    "make": "KIA",
+    "model": "CARNIVAL HYBRID",
+    "year": 2026
+  },
+  {
+    "make": "KIA",
+    "model": "EV6",
+    "year": 2022
+  },
+  {
+    "make": "KIA",
+    "model": "EV6",
+    "year": 2023
+  },
+  {
+    "make": "KIA",
+    "model": "EV6",
+    "year": 2024
+  },
+  {
+    "make": "KIA",
+    "model": "EV9",
+    "year": 2024
+  },
+  {
+    "make": "KIA",
+    "model": "EV9",
+    "year": 2025
+  },
+  {
+    "make": "KIA",
+    "model": "K5",
+    "year": 2025
+  },
+  {
+    "make": "KIA",
+    "model": "K5",
+    "year": 2026
+  },
+  {
+    "make": "KIA",
+    "model": "KIA",
+    "year": 9999
+  },
+  {
+    "make": "KIA",
+    "model": "NIRO",
+    "year": 2020
+  },
+  {
+    "make": "KIA",
+    "model": "NIRO",
+    "year": 2021
+  },
+  {
+    "make": "KIA",
+    "model": "NIRO",
+    "year": 2022
+  },
+  {
+    "make": "KIA",
+    "model": "NIRO",
+    "year": 2023
+  },
+  {
+    "make": "KIA",
+    "model": "NIRO",
+    "year": 2024
+  },
+  {
+    "make": "KIA",
+    "model": "NIRO",
+    "year": 2025
+  },
+  {
+    "make": "KIA",
+    "model": "NIRO",
+    "year": 2026
+  },
+  {
+    "make": "KIA",
+    "model": "NIRO EV",
+    "year": 2020
+  },
+  {
+    "make": "KIA",
+    "model": "NIRO EV",
+    "year": 2021
+  },
+  {
+    "make": "KIA",
+    "model": "NIRO EV",
+    "year": 2022
+  },
+  {
+    "make": "KIA",
+    "model": "NIRO EV",
+    "year": 2023
+  },
+  {
+    "make": "KIA",
+    "model": "NIRO EV",
+    "year": 2024
+  },
+  {
+    "make": "KIA",
+    "model": "NIRO EV",
+    "year": 2025
+  },
+  {
+    "make": "KIA",
+    "model": "NIRO PHEV",
+    "year": 2020
+  },
+  {
+    "make": "KIA",
+    "model": "NIRO PHEV",
+    "year": 2021
+  },
+  {
+    "make": "KIA",
+    "model": "NIRO PHEV",
+    "year": 2022
+  },
+  {
+    "make": "KIA",
+    "model": "NIRO PHEV",
+    "year": 2023
+  },
+  {
+    "make": "KIA",
+    "model": "NIRO PHEV",
+    "year": 2024
+  },
+  {
+    "make": "KIA",
+    "model": "NIRO PHEV",
+    "year": 2025
+  },
+  {
+    "make": "KIA",
+    "model": "OPTIMA",
+    "year": 9999
+  },
+  {
+    "make": "KIA",
+    "model": "OPTIMA HYBRID",
+    "year": 2020
+  },
+  {
+    "make": "KIA",
+    "model": "OPTIMA PHEV",
+    "year": 2020
+  },
+  {
+    "make": "KIA",
+    "model": "RIO",
+    "year": 9999
+  },
+  {
+    "make": "KIA",
+    "model": "RIO CINCO",
+    "year": 9999
+  },
+  {
+    "make": "KIA",
+    "model": "SEDONA",
+    "year": 2020
+  },
+  {
+    "make": "KIA",
+    "model": "SEDONA",
+    "year": 2021
+  },
+  {
+    "make": "KIA",
+    "model": "SEDONA",
+    "year": 9999
+  },
+  {
+    "make": "KIA",
+    "model": "SELTOS",
+    "year": 2021
+  },
+  {
+    "make": "KIA",
+    "model": "SELTOS",
+    "year": 2022
+  },
+  {
+    "make": "KIA",
+    "model": "SELTOS",
+    "year": 2023
+  },
+  {
+    "make": "KIA",
+    "model": "SELTOS",
+    "year": 2024
+  },
+  {
+    "make": "KIA",
+    "model": "SELTOS",
+    "year": 2025
+  },
+  {
+    "make": "KIA",
+    "model": "SELTOS",
+    "year": 2026
+  },
+  {
+    "make": "KIA",
+    "model": "SELTOS",
+    "year": 2027
+  },
+  {
+    "make": "KIA",
+    "model": "SORENTO",
+    "year": 2021
+  },
+  {
+    "make": "KIA",
+    "model": "SORENTO",
+    "year": 2022
+  },
+  {
+    "make": "KIA",
+    "model": "SORENTO",
+    "year": 2023
+  },
+  {
+    "make": "KIA",
+    "model": "SORENTO",
+    "year": 2024
+  },
+  {
+    "make": "KIA",
+    "model": "SORENTO",
+    "year": 2025
+  },
+  {
+    "make": "KIA",
+    "model": "SORENTO",
+    "year": 9999
+  },
+  {
+    "make": "KIA",
+    "model": "SORENTO HYBRID",
+    "year": 2021
+  },
+  {
+    "make": "KIA",
+    "model": "SORENTO HYBRID",
+    "year": 2022
+  },
+  {
+    "make": "KIA",
+    "model": "SORENTO HYBRID",
+    "year": 2023
+  },
+  {
+    "make": "KIA",
+    "model": "SORENTO HYBRID",
+    "year": 2024
+  },
+  {
+    "make": "KIA",
+    "model": "SORENTO HYBRID",
+    "year": 2025
+  },
+  {
+    "make": "KIA",
+    "model": "SORENTO HYBRID",
+    "year": 2026
+  },
+  {
+    "make": "KIA",
+    "model": "SORENTO PHEV",
+    "year": 2022
+  },
+  {
+    "make": "KIA",
+    "model": "SORENTO PHEV",
+    "year": 2023
+  },
+  {
+    "make": "KIA",
+    "model": "SORENTO PHEV",
+    "year": 2024
+  },
+  {
+    "make": "KIA",
+    "model": "SORENTO PHEV",
+    "year": 2025
+  },
+  {
+    "make": "KIA",
+    "model": "SOUL",
+    "year": 2020
+  },
+  {
+    "make": "KIA",
+    "model": "SOUL",
+    "year": 2021
+  },
+  {
+    "make": "KIA",
+    "model": "SOUL",
+    "year": 2022
+  },
+  {
+    "make": "KIA",
+    "model": "SOUL",
+    "year": 2023
+  },
+  {
+    "make": "KIA",
+    "model": "SOUL",
+    "year": 2024
+  },
+  {
+    "make": "KIA",
+    "model": "SOUL",
+    "year": 2025
+  },
+  {
+    "make": "KIA",
+    "model": "SPECTRA",
+    "year": 9999
+  },
+  {
+    "make": "KIA",
+    "model": "SPORTAGE",
+    "year": 2020
+  },
+  {
+    "make": "KIA",
+    "model": "SPORTAGE",
+    "year": 2021
+  },
+  {
+    "make": "KIA",
+    "model": "SPORTAGE",
+    "year": 2022
+  },
+  {
+    "make": "KIA",
+    "model": "SPORTAGE",
+    "year": 2023
+  },
+  {
+    "make": "KIA",
+    "model": "SPORTAGE",
+    "year": 2024
+  },
+  {
+    "make": "KIA",
+    "model": "SPORTAGE",
+    "year": 2025
+  },
+  {
+    "make": "KIA",
+    "model": "SPORTAGE",
+    "year": 2026
+  },
+  {
+    "make": "KIA",
+    "model": "SPORTAGE",
+    "year": 9999
+  },
+  {
+    "make": "KIA",
+    "model": "SPORTAGE HYBRID",
+    "year": 2023
+  },
+  {
+    "make": "KIA",
+    "model": "SPORTAGE HYBRID",
+    "year": 2024
+  },
+  {
+    "make": "KIA",
+    "model": "SPORTAGE HYBRID",
+    "year": 2025
+  },
+  {
+    "make": "KIA",
+    "model": "SPORTAGE HYBRID",
+    "year": 2026
+  },
+  {
+    "make": "KIA",
+    "model": "SPORTAGE HYBRID",
+    "year": 2027
+  },
+  {
+    "make": "KIA",
+    "model": "SPORTAGE PHEV",
+    "year": 2023
+  },
+  {
+    "make": "KIA",
+    "model": "SPORTAGE PHEV",
+    "year": 2024
+  },
+  {
+    "make": "KIA",
+    "model": "SPORTAGE PHEV",
+    "year": 2025
+  },
+  {
+    "make": "KIA",
+    "model": "SPORTAGE PHEV",
+    "year": 2026
+  },
+  {
+    "make": "KIA",
+    "model": "STINGER",
+    "year": 2020
+  },
+  {
+    "make": "KIA",
+    "model": "STINGER",
+    "year": 2021
+  },
+  {
+    "make": "KIA",
+    "model": "STINGER",
+    "year": 2022
+  },
+  {
+    "make": "KIA",
+    "model": "STINGER",
+    "year": 2023
+  },
+  {
+    "make": "KUMHO",
+    "model": "KUMHO",
+    "year": 9999
+  },
+  {
+    "make": "NISSAN",
+    "model": "ROGUE",
+    "year": 2020
+  },
+  {
+    "make": "UNKNOWN",
+    "model": "UNKNOWN",
+    "year": 9999
+  },
+  {
+    "make": "UNKNOWN",
+    "model": "UNKNOWN1",
+    "year": 9999
+  },
+  {
+    "make": "YOKOHAMA",
+    "model": "YOKOHAMA",
+    "year": 9999
+  }
+]
