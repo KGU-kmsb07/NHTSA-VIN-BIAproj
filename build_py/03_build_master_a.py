@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 ==============================================================================
-[파이프라인 3단계] 전략 A 차종-연식-시스템 마스터셋 생성 스크립트 (초고속 엔진)
+[파이프라인 3단계] 전략 A 차종-연식-시스템 마스터셋 생성 스크립트 (공장 정보 포함)
 파일명: 03_build_master_a.py
 위치: dataset/build_py/
 출력:
@@ -15,7 +15,7 @@ import os
 import csv
 import json
 import subprocess
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATASET_DIR = os.path.dirname(SCRIPT_DIR)
@@ -33,6 +33,22 @@ os.makedirs(RAW_DIR, exist_ok=True)
 
 CSV_OUT = os.path.join(RAW_DIR, "master_vehicle_system_2020.csv")
 RDS_OUT = os.path.join(RDS_DIR, "master_vehicle_system_2020.rds")
+
+# VIN 11번째 자리 기준 한국 조립공장 매핑 (ISO 3779 표준 규격)
+PLANT_MAP = {
+    # (Make, PlantCode): (PlantCity, PlantName)
+    ("HYUNDAI", "U"): ("ULSAN", "Hyundai Ulsan Plant"),
+    ("HYUNDAI", "A"): ("ASAN", "Hyundai Asan Plant"),
+    ("HYUNDAI", "M"): ("JEONJU", "Hyundai Jeonju Plant"),
+    ("GENESIS", "U"): ("ULSAN", "Hyundai Ulsan Genesis Plant"),
+    ("KIA", "7"): ("GWANGJU", "Kia AutoLand Gwangju"),
+    ("KIA", "5"): ("HWASEONG", "Kia AutoLand Hwaseong"),
+    ("KIA", "6"): ("GWANGMYEONG", "Kia AutoLand Gwangmyeong"),
+    ("CHEVROLET", "B"): ("BUPYEONG", "GM Korea Bupyeong Plant"),
+    ("CHEVROLET", "C"): ("CHANGWON", "GM Korea Changwon Plant"),
+    ("BUICK", "B"): ("BUPYEONG", "GM Korea Bupyeong Plant"),
+    ("BUICK", "C"): ("CHANGWON", "GM Korea Changwon Plant"),
+}
 
 def standardize_system(comp_desc):
     c = (comp_desc or "").strip().upper()
@@ -68,23 +84,25 @@ def standardize_system(comp_desc):
 
 def main():
     print("=" * 70)
-    print(">> [3단계] 전략 A 차종-연식-시스템 마스터셋 생성 시작 (Fast Engine)...")
+    print(">> [3단계] 전략 A 마스터셋 생성 시작 (공장 정보 plant_city/name 추가)...")
     print("=" * 70)
 
     # 1. 한국산 키 로드
     with open(CACHE_KEYS, "r", encoding="utf-8") as f:
         keys_data = json.load(f)
     kor_keys = {(d["make"].upper(), d["model"].upper(), int(d["year"])) for d in keys_data}
-    print(f"   • 한국 생산 차종 키 로드: {len(kor_keys)}개")
 
-    # 2. 불만 데이터 집계 (Make, Model, Year, System)
-    print(">> 1/4. 소비자 불만 원천 데이터 집계 중...")
+    # 2. 불만 데이터 집계 + 공장 코드(VIN 11번째 자리) 추출
+    print(">> 1/4. 소비자 불만 원천 데이터 집계 및 생산 공장 해독 중...")
     cmpl_stats = defaultdict(lambda: {
         "cmpl_count": 0, "fire_count": 0, "crash_count": 0,
         "inj_count": 0, "death_count": 0, "stall_count": 0,
         "smoke_fire_text_count": 0, "early_fail_count": 0,
-        "miles_list": []
+        "miles_list": [], "plant_codes": Counter()
     })
+
+    # 차종별 기본 공장 백업 매핑
+    model_plant_lookup = defaultdict(Counter)
 
     with open(CMPL_TXT, "r", encoding="latin-1") as f:
         for line in f:
@@ -102,9 +120,16 @@ def main():
                 year = int(yr_str)
                 system = standardize_system(tokens[11])
                 
+                # VIN 11번째 자리 공장 코드
+                p_char = vin[10] if len(vin) >= 11 else ""
+                if p_char:
+                    model_plant_lookup[(make, model)][p_char] += 1
+                
                 g_key = (make, model, year, system)
                 st = cmpl_stats[g_key]
                 st["cmpl_count"] += 1
+                if p_char:
+                    st["plant_codes"][p_char] += 1
                 
                 if tokens[8].strip().upper() == "Y":
                     st["fire_count"] += 1
@@ -179,15 +204,11 @@ def main():
                 if len(tokens) >= 28 and tokens[27].strip().upper() == "Y":
                     rst["do_not_drive"] = 1
                     
-                if len(tokens) >= 25:
-                    pname = tokens[24].strip()
-                    if pname:
-                        rst["part_names"].add(pname)
-                if len(tokens) >= 27:
-                    pnum = tokens[26].strip()
-                    if pnum:
-                        rst["part_numbers"].add(pnum)
-                        rst["parts"].add(pnum)
+                if len(tokens) >= 25 and tokens[24].strip():
+                    rst["part_names"].add(tokens[24].strip())
+                if len(tokens) >= 27 and tokens[26].strip():
+                    rst["part_numbers"].add(tokens[26].strip())
+                    rst["parts"].add(tokens[26].strip())
 
     print(f"   • 리콜 집계 완료: {len(rcl_stats)}개 그룹")
 
@@ -214,8 +235,8 @@ def main():
 
     print(f"   • 조사 집계 완료: {len(inv_stats)}개 그룹")
 
-    # 5. Full Outer Join (모든 키 합집합)
-    print(">> 4/4. 마스터셋 병합 및 파생 지표 산출 중...")
+    # 5. Full Outer Join 및 공장명 매핑
+    print(">> 4/4. 마스터셋 병합 및 공장 컬럼(plant_country, plant_city, plant_name) 생성 중...")
     all_keys = set(cmpl_stats.keys()) | set(rcl_stats.keys()) | set(inv_stats.keys())
 
     master_rows = []
@@ -225,6 +246,21 @@ def main():
         r = rcl_stats[g_key]
         inv = inv_stats[g_key]
         
+        # 공장 코드 판별 (해당 그룹 빈도 최상위 or 차종 기본값)
+        p_code = ""
+        if c["plant_codes"]:
+            p_code = c["plant_codes"].most_common(1)[0][0]
+        elif (make, model) in model_plant_lookup and model_plant_lookup[(make, model)]:
+            p_code = model_plant_lookup[(make, model)].most_common(1)[0][0]
+            
+        p_city, p_name = PLANT_MAP.get((make, p_code), ("KOREA_OTHER", "Korean Assembly Plant"))
+        if make in ["HYUNDAI", "GENESIS"] and p_city == "KOREA_OTHER":
+            p_city, p_name = ("ULSAN", "Hyundai Ulsan Plant")
+        elif make == "KIA" and p_city == "KOREA_OTHER":
+            p_city, p_name = ("GWANGJU", "Kia AutoLand Gwangju")
+        elif make in ["CHEVROLET", "BUICK"] and p_city == "KOREA_OTHER":
+            p_city, p_name = ("BUPYEONG", "GM Korea Bupyeong Plant")
+            
         cmpl_cnt = c["cmpl_count"]
         fire_cnt = c["fire_count"]
         crash_cnt = c["crash_count"]
@@ -254,6 +290,9 @@ def main():
         
         master_rows.append({
             "make": make, "model": model, "year": year, "system": system,
+            "plant_country": "SOUTH KOREA",
+            "plant_city": p_city,
+            "plant_name": p_name,
             "cmpl_count": cmpl_cnt, "fire_count": fire_cnt, "crash_count": crash_cnt,
             "inj_count": inj_cnt, "death_count": death_cnt, "stall_count": stall_cnt,
             "smoke_fire_text_count": smoke_cnt, "early_fail_count": early_cnt,
@@ -268,7 +307,6 @@ def main():
 
     master_rows.sort(key=lambda x: (-x["risk_severity_index"], -x["cmpl_count"]))
 
-    # CSV 저장
     fieldnames = list(master_rows[0].keys())
     with open(CSV_OUT, "w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
@@ -276,7 +314,6 @@ def main():
         writer.writerows(master_rows)
     print(f"   ★ CSV 저장 완료: '{CSV_OUT}' ({len(master_rows):,}행, {len(fieldnames)}열)")
 
-    # R script로 초고속 RDS 변환
     r_code = f"""
     df <- read.csv("{CSV_OUT}", stringsAsFactors = FALSE, check.names = FALSE)
     saveRDS(df, "{RDS_OUT}")
@@ -285,7 +322,7 @@ def main():
     print(f"   ★ RDS 저장 완료: '{RDS_OUT}'")
 
     print("=" * 70)
-    print(">> [3단계 완료] master_vehicle_system_2020가 완벽하게 생성되었습니다.")
+    print(">> [3단계 완료] 공장 컬럼(plant_country, plant_city, plant_name) 탑재 완료!")
     print("=" * 70)
 
 if __name__ == "__main__":

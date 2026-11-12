@@ -103,7 +103,7 @@ flowchart TD
 
 ### 5.1. [데이터셋 1] `master_vehicle_system_2020` (클러스터링용)
 - **파일 경로**: `dataset/rds/master_vehicle_system_2020.rds` (및 `.csv`)
-- **관측 단위**: 1행 = `[Make - Model - Year - System]` (2,421행 × 25열)
+- **관측 단위**: 1행 = `[Make - Model - Year - System]` (2,421행 × 28열)
 - **변수 정의**:
 
 | 컬럼명 | 자료형 | 설명 |
@@ -112,6 +112,9 @@ flowchart TD
 | `model` | 문자 | 차종명 (IONIQ 5, EV6, SOUL, TUCSON, G70, TRAILBLAZER 등) |
 | `year` | 정수 | 모델 연식 (2020 ~ 2026) |
 | `system` | 문자 | 12대 표준 시스템 분류 (ENGINE, ELECTRICAL, BRAKES, POWERTRAIN, SEAT_BELTS 등) |
+| `plant_country` | 문자 | **생산 국가** (`SOUTH KOREA`) |
+| `plant_city` | 문자 | **생산 도시** (`ULSAN`, `ASAN`, `GWANGJU`, `HWASEONG`, `GWANGMYEONG`, `BUPYEONG`, `CHANGWON`) |
+| `plant_name` | 문자 | **조립 공장 명칭** (현대 울산공장, 기아 광주공장, 기아 화성공장, 한국GM 부평공장 등) |
 | `cmpl_count` | 정수 | 해당 차종-시스템에 접수된 총 소비자 불만 건수 |
 | `fire_count` | 정수 | 화재 발생 신고 건수 (`FIRE == "Y"`) |
 | `crash_count` | 정수 | 충돌 사고 신고 건수 (`CRASH == "Y"`) |
