@@ -1,4 +1,6 @@
 # 한국 생산 수출 자동차의 리콜 위험 예측과 품질 관리 (NHTSA 자료를 중심으로)
+(자료 최신일 : 261103)
+
 ### NHTSA 소비자 불만(Complaints), 리콜(Recalls), 결함 조사(Investigations) 기반 단일 마스터 데이터셋 구축 (V2.1 Pure Fact-based & Full Parts Preservation Release)
 
 - **연구 과제**: 한국 생산 수출 자동차의 리콜 위험 예측과 품질 관리 (NHTSA 자료를 중심으로)
