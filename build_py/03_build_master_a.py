@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 ==============================================================================
-[파이프라인 3단계 - V2.0] 전략 A 차종-연식-시스템 마스터셋 생성 스크립트 (Pure Fact-based)
+[파이프라인 3단계 - V2.1] 전략 A 차종-연식-시스템 마스터셋 생성 스크립트 (Pure Fact & 100% Parts)
 파일명: 03_build_master_a.py
 위치: dataset/build_py/
 출력:
@@ -272,8 +272,8 @@ def main():
         potaff = r["potaff_max"]
         park_out = r["park_outside"]
         dnd = r["do_not_drive"]
-        top_names = " | ".join(sorted(r["part_names"])[:2])
-        top_nums = " | ".join(sorted(r["part_numbers"])[:2])
+        top_names = " | ".join(sorted(r["part_names"]))
+        top_nums = " | ".join(sorted(r["part_numbers"]))
         
         inv_cnt = inv["inv_count"]
         active_inv = 1 if inv_cnt > 0 else 0
