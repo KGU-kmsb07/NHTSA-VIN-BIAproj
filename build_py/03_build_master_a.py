@@ -2,12 +2,18 @@
 # -*- coding: utf-8 -*-
 """
 ==============================================================================
-[파이프라인 3단계] 전략 A 차종-연식-시스템 마스터셋 생성 스크립트 (공장 정보 포함)
+[파이프라인 3단계 - V2.0] 전략 A 차종-연식-시스템 마스터셋 생성 스크립트 (Pure Fact-based)
 파일명: 03_build_master_a.py
 위치: dataset/build_py/
 출력:
   - dataset/rds/master_vehicle_system_2020.rds (R 클러스터링 분석용)
   - dataset/raw/master_vehicle_system_2020.csv (엑셀 및 공용 플랫 테이블)
+
+[V2.0 변경 사항]:
+  - 임의 가중치 복합 지표(risk_severity_index) 완전 삭제
+  - 주관적 기준 임계값(early_fail_count, early_fail_ratio) 및 임의 텍스트 마이닝(stall_count, smoke_fire_text_count) 삭제
+  - 원천 NHTSA 데이터(불만, 리콜, 조사)의 순수 팩트 집계 카운트 23개 열로 완전 정규화
+  - 한국 7대 조립공장 매핑(plant_country, plant_city, plant_name) 100% 보존
 ==============================================================================
 """
 
@@ -84,7 +90,7 @@ def standardize_system(comp_desc):
 
 def main():
     print("=" * 70)
-    print(">> [3단계] 전략 A 마스터셋 생성 시작 (공장 정보 plant_city/name 추가)...")
+    print(">> [3단계 - V2.0] 순수 팩트 기반 마스터셋 A 생성 시작...")
     print("=" * 70)
 
     # 1. 한국산 키 로드
@@ -96,8 +102,7 @@ def main():
     print(">> 1/4. 소비자 불만 원천 데이터 집계 및 생산 공장 해독 중...")
     cmpl_stats = defaultdict(lambda: {
         "cmpl_count": 0, "fire_count": 0, "crash_count": 0,
-        "inj_count": 0, "death_count": 0, "stall_count": 0,
-        "smoke_fire_text_count": 0, "early_fail_count": 0,
+        "inj_count": 0, "death_count": 0,
         "miles_list": [], "plant_codes": Counter()
     })
 
@@ -145,27 +150,19 @@ def main():
                 except ValueError:
                     pass
                     
-                cdescr = tokens[19].upper() if len(tokens) > 19 else ""
-                if any(k in cdescr for k in ["STALL", "SHUT OFF", "DIED", "CUT OFF", "NO POWER", "LOSS OF POWER"]):
-                    st["stall_count"] += 1
-                if any(k in cdescr for k in ["SMOKE", "FIRE", "BURNING", "MELT", "FLAME", "SPARK"]):
-                    st["smoke_fire_text_count"] += 1
-                    
                 try:
                     m = float(tokens[17].strip() or -1)
                     if 0 <= m <= 300000:
                         st["miles_list"].append(m)
-                        if m <= 15000:
-                            st["early_fail_count"] += 1
                 except ValueError:
                     pass
 
-    print(f"   • 불만 집계 완료: {len(cmpl_stats)}개 그룹")
+    print(f"   • 불만 집계 완료: {len(cmpl_stats)}개 그룹 (공장 코드 매핑 {len(model_plant_lookup)}개 차종)")
 
     # 3. 리콜 데이터 집계
     print(">> 2/4. 리콜 원천 데이터 집계 중...")
     rcl_stats = defaultdict(lambda: {
-        "camps": set(), "potaff_max": 0.0, "parts": set(),
+        "camps": set(), "parts": set(), "potaff_max": 0.0,
         "park_outside": 0, "do_not_drive": 0,
         "part_names": set(), "part_numbers": set()
     })
@@ -184,37 +181,39 @@ def main():
                 if not ((make, model, year) in kor_keys or any(k in make for k in ["HYUNDAI", "KIA", "GENESIS", "GM KOREA"])):
                     continue
                     
+                campno = tokens[1].strip()
                 system = standardize_system(tokens[6])
                 g_key = (make, model, year, system)
-                rst = rcl_stats[g_key]
+                st = rcl_stats[g_key]
+                st["camps"].add(campno)
                 
-                campno = tokens[1].strip()
-                if campno:
-                    rst["camps"].add(campno)
-                    
                 try:
                     pot = float(tokens[11].strip() or 0)
-                    if pot > rst["potaff_max"]:
-                        rst["potaff_max"] = pot
+                    if pot > st["potaff_max"]:
+                        st["potaff_max"] = pot
                 except ValueError:
                     pass
                     
                 if len(tokens) >= 29 and tokens[28].strip().upper() == "Y":
-                    rst["park_outside"] = 1
+                    st["park_outside"] = 1
                 if len(tokens) >= 28 and tokens[27].strip().upper() == "Y":
-                    rst["do_not_drive"] = 1
+                    st["do_not_drive"] = 1
                     
-                if len(tokens) >= 25 and tokens[24].strip():
-                    rst["part_names"].add(tokens[24].strip())
-                if len(tokens) >= 27 and tokens[26].strip():
-                    rst["part_numbers"].add(tokens[26].strip())
-                    rst["parts"].add(tokens[26].strip())
+                if len(tokens) >= 27:
+                    pt_no = tokens[26].strip()
+                    if pt_no:
+                        st["parts"].add(pt_no)
+                        st["part_numbers"].add(pt_no)
+                if len(tokens) >= 25:
+                    pt_name = tokens[24].strip()
+                    if pt_name:
+                        st["part_names"].add(pt_name)
 
     print(f"   • 리콜 집계 완료: {len(rcl_stats)}개 그룹")
 
-    # 4. 정부 조사 데이터 집계
+    # 4. 결함 조사 데이터 집계
     print(">> 3/4. 정부 결함 조사 원천 데이터 집계 중...")
-    inv_stats = defaultdict(lambda: {"inv_count": 0, "active": 1})
+    inv_stats = defaultdict(lambda: {"inv_count": 0})
 
     with open(INV_TXT, "r", encoding="latin-1") as f:
         for line in f:
@@ -236,7 +235,7 @@ def main():
     print(f"   • 조사 집계 완료: {len(inv_stats)}개 그룹")
 
     # 5. Full Outer Join 및 공장명 매핑
-    print(">> 4/4. 마스터셋 병합 및 공장 컬럼(plant_country, plant_city, plant_name) 생성 중...")
+    print(">> 4/4. 순수 팩트 기반 마스터셋 병합 및 공장 컬럼(plant_city, plant_name) 생성 중...")
     all_keys = set(cmpl_stats.keys()) | set(rcl_stats.keys()) | set(inv_stats.keys())
 
     master_rows = []
@@ -266,9 +265,6 @@ def main():
         crash_cnt = c["crash_count"]
         inj_cnt = c["inj_count"]
         death_cnt = c["death_count"]
-        stall_cnt = c["stall_count"]
-        smoke_cnt = c["smoke_fire_text_count"]
-        early_cnt = c["early_fail_count"]
         avg_miles = round(sum(c["miles_list"]) / len(c["miles_list"]), 1) if c["miles_list"] else ""
         
         rcl_cnt = len(r["camps"])
@@ -281,11 +277,6 @@ def main():
         
         inv_cnt = inv["inv_count"]
         active_inv = 1 if inv_cnt > 0 else 0
-        
-        risk_index = (fire_cnt * 3) + (crash_cnt * 2) + (inj_cnt * 2) + (death_cnt * 10) + \
-                     (park_out * 5) + (dnd * 10) + (active_inv * 4)
-                     
-        early_ratio = round(early_cnt / cmpl_cnt, 3) if cmpl_cnt > 0 else 0.0
         has_recall = 1 if rcl_cnt > 0 else 0
         
         master_rows.append({
@@ -293,36 +284,40 @@ def main():
             "plant_country": "SOUTH KOREA",
             "plant_city": p_city,
             "plant_name": p_name,
-            "cmpl_count": cmpl_cnt, "fire_count": fire_cnt, "crash_count": crash_cnt,
-            "inj_count": inj_cnt, "death_count": death_cnt, "stall_count": stall_cnt,
-            "smoke_fire_text_count": smoke_cnt, "early_fail_count": early_cnt,
+            "cmpl_count": cmpl_cnt, "crash_count": crash_cnt, "fire_count": fire_cnt,
+            "inj_count": inj_cnt, "death_count": death_cnt,
             "avg_fail_miles": avg_miles, "recall_count": rcl_cnt,
             "distinct_parts_count": part_cnt, "max_potaff": potaff,
             "park_outside_yn": park_out, "do_not_drive_yn": dnd,
             "key_part_names": top_names, "key_part_numbers": top_nums,
             "inv_count": inv_cnt, "active_inv_yn": active_inv,
-            "risk_severity_index": risk_index, "early_fail_ratio": early_ratio,
             "has_recall": has_recall
         })
 
-    master_rows.sort(key=lambda x: (-x["risk_severity_index"], -x["cmpl_count"]))
+    # 객관적 기준 정렬: 리콜 건수 -> 화재 건수 -> 충돌 건수 -> 총 불만 건수 순
+    master_rows.sort(key=lambda x: (-x["recall_count"], -x["fire_count"], -x["crash_count"], -x["cmpl_count"]))
 
     fieldnames = list(master_rows[0].keys())
     with open(CSV_OUT, "w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(master_rows)
-    print(f"   ★ CSV 저장 완료: '{CSV_OUT}' ({len(master_rows):,}행, {len(fieldnames)}열)")
 
-    r_code = f"""
+    print(f">> [완료] 순수 팩트 CSV 생성: {CSV_OUT} ({len(master_rows)}행 × {len(fieldnames)}열)")
+
+    # 6. R rds 파일 저장
+    print(">> R RDS 변환 중...")
+    r_script = f"""
     df <- read.csv("{CSV_OUT}", stringsAsFactors = FALSE, check.names = FALSE)
+    df$avg_fail_miles[is.na(df$avg_fail_miles)] <- NA
     saveRDS(df, "{RDS_OUT}")
+    cat("RDS saved: {RDS_OUT}\n")
     """
-    subprocess.run(["Rscript", "-e", r_code], check=True)
-    print(f"   ★ RDS 저장 완료: '{RDS_OUT}'")
+    cmd = ["Rscript", "-e", r_script]
+    subprocess.run(cmd, check=True)
 
     print("=" * 70)
-    print(">> [3단계 완료] 공장 컬럼(plant_country, plant_city, plant_name) 탑재 완료!")
+    print(f">> [성공] 전략 A V2.0 마스터셋 구축 완료 ({len(master_rows)}행 × {len(fieldnames)}열)")
     print("=" * 70)
 
 if __name__ == "__main__":
