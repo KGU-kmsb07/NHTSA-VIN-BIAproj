@@ -169,9 +169,9 @@ flowchart TD
 |:---:|---|:---:|---|
 | 1 | `campno` | 문자 | NHTSA 공식 리콜 번호 (예: 20V543000, 23V181000) |
 | 2 | `mfr_comp_ptno` | 문자 | **제조사 세부 부품 파트 번호** (예: 58920-D3530, 37501-K4000) |
-| 3 | `mfr_comp_name` | 문자 | 제조사 세부 부품 명칭 (예: ABS Assembly, Fuel Pump) |
-| 4 | `system` | 문자 | 표준 시스템 대분류 |
-| 5 | `make` | 문자 | 제조사 브랜드 |
+| 3 | `system` | 문자 | 표준 시스템 대분류 |
+| 4 | `make` | 문자 | 제조사 브랜드 |
+| 5 | `mfr_comp_name` | 문자 | 제조사 세부 부품 명칭 (예: ABS Assembly, Fuel Pump) |
 | 6 | `affected_models` | 문자 | 해당 부품 결함이 적용된 대상 차종 목록 (콤마 구분) |
 | 7 | `model_year_min` | 정수 | 결함 적용 최저 연식 (예: 2020) |
 | 8 | `model_year_max` | 정수 | 결함 적용 최고 연식 (예: 2024) |
